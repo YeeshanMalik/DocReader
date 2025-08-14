@@ -12,7 +12,7 @@ EMBEDDINGS_MODEL = "text-embedding-004"
 LLM_MODEL = "gemini-1.5-pro"
 
 # Configure Gemini
-genai.configure(api_key="AIzaSyBLn0HDt3j4NSag9H9wGlcxlAkgkrILJ_g")
+genai.configure(api_key=os.get_env("GOOGLE_API_KEY"))
 
 # Flags for language UI
 LANG_FLAGS = {
@@ -31,3 +31,4 @@ def call_gemini(prompt):
     model = genai.GenerativeModel(LLM_MODEL)
     response = model.generate_content(prompt)
     return response.text
+
